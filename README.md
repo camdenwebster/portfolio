@@ -1,3 +1,5 @@
-# portfolio
-
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/camdenwebster/portfolio)
+# Camden Webster Portfolio Website
+## Running the Site
+```shell
+npm install && npm run dev
+```

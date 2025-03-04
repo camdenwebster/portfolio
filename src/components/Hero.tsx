@@ -7,16 +7,21 @@ const Hero = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12 mb-12">
-            <div className="md:w-1/3">
-              <div className="relative">
-                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white dark:border-dark-card shadow-xl">
-                  <img
-                    src="/headshot.png"
-                    alt="Camden Webster"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 rounded-full ring-2 ring-primary-500 dark:ring-primary-400 ring-offset-4 ring-offset-white dark:ring-offset-dark-bg"></div>
+            <div className="md:w-1/3 flex justify-center">
+              {/* New approach with a single container */}
+              <div className="w-48 h-48 md:w-64 md:h-64 rounded-full relative">
+                {/* Image container */}
+                <img
+                  src="/headshot.png"
+                  alt="Camden Webster"
+                  className="w-full h-full object-cover rounded-full border-4 border-white dark:border-dark-card shadow-xl"
+                  onError={(e) => {
+                    console.error('Image failed to load');
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+                {/* Outer ring */}
+                <div className="absolute inset-0 rounded-full ring-2 ring-primary-500 dark:ring-primary-400 ring-offset-4 ring-offset-white dark:ring-offset-dark-bg pointer-events-none"></div>
               </div>
             </div>
             <div className="md:w-2/3 text-center md:text-left">

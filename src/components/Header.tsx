@@ -1,37 +1,70 @@
 import React from 'react';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   const menuItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'About', href: isHomePage ? '#about' : '/#about', isHash: true },
+    { label: 'Projects', href: isHomePage ? '#projects' : '/#projects', isHash: true },
+    { label: 'Skills', href: isHomePage ? '#skills' : '/#skills', isHash: true },
+    { label: 'Experience', href: isHomePage ? '#experience' : '/#experience', isHash: true },
+    { label: 'Blog', href: isHomePage ? '#blog' : '/#blog', isHash: true },
+    { label: 'Contact', href: isHomePage ? '#contact' : '/#contact', isHash: true },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isHash: boolean) => {
+    if (isHash && isHomePage && href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    setIsMenuOpen(false);
+  };
+
+  const renderNavItem = (item: { label: string; href: string; isHash: boolean }) => {
+    if (item.isHash) {
+      return (
+        <a
+          key={item.label}
+          href={item.href}
+          onClick={(e) => handleNavClick(e, item.href, item.isHash)}
+          className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+        >
+          {item.label}
+        </a>
+      );
+    }
+
+    return (
+      <Link
+        key={item.label}
+        to={item.href}
+        onClick={() => setIsMenuOpen(false)}
+        className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+      >
+        {item.label}
+      </Link>
+    );
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-dark-border">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="text-2xl font-bold text-gray-800 dark:text-white">
-          CW
-          </a>
+          <Link to="/" className="text-2xl font-bold text-gray-800 dark:text-white">
+            CW
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {menuItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
+            {menuItems.map((item) => renderNavItem(item))}
             <ThemeToggle />
           </div>
 
@@ -50,16 +83,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden py-4">
-            {menuItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="block py-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
+            {menuItems.map((item) => renderNavItem(item))}
           </div>
         )}
       </nav>

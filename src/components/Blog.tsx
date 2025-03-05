@@ -30,7 +30,7 @@ const Blog: React.FC = () => {
             Latest Blog Posts
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-            Thoughts and insights about web development, design, and technology
+            Thoughts and insights about building and testing software for Apple Platforms, CI/CD, and more.
           </p>
         </div>
         
@@ -39,10 +39,19 @@ const Blog: React.FC = () => {
             <div className="col-span-2 flex justify-center py-12">
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
             </div>
-          ) : (
+          ) : posts.length > 0 ? (
             posts.slice(0, 2).map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))
+          ) : (
+            <div className="col-span-2 text-center py-12">
+              <p className="text-gray-600 dark:text-gray-400 text-lg mb-4">
+                No blog entries available at the moment.
+              </p>
+              <p className="text-gray-500 dark:text-gray-500 text-sm">
+                Check back soon for new content!
+              </p>
+            </div>
           )}
         </div>
 

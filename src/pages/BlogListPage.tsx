@@ -54,7 +54,7 @@ const BlogListPage: React.FC = () => {
             Blog
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Thoughts and insights about web development, design, and technology
+            Thoughts and insights about building and testing software for Apple Platforms, CI/CD, and more.
           </p>
         </div>
 
@@ -65,13 +65,32 @@ const BlogListPage: React.FC = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center text-gray-600 dark:text-gray-400 py-12">
-            <p className="mb-4">No blog posts found.</p>
+          <div className="text-center py-16 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+            <p className="text-gray-600 dark:text-gray-400 text-lg mb-4">
+              No blog entries available at the moment.
+            </p>
+            <p className="text-gray-500 dark:text-gray-500 text-sm mb-8">
+              Check back soon for new content!
+            </p>
             <Link
               to="/"
-              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 flex items-center justify-center gap-2"
             >
-              ← Back to Home
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
+              Back to Home
             </Link>
           </div>
         )}

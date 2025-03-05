@@ -37,9 +37,7 @@ const Hero = () => {
               </p>
               <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-4">
                 <a
-                  href="https://github.com/camdenwebster"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#projects"
                   className="px-8 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors flex items-center gap-2"
                 >
                   View My Work

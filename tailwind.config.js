@@ -26,6 +26,52 @@ export default {
         'dark-bg': '#111827',
         'dark-border': '#374151',
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: theme('colors.gray.700'),
+            a: {
+              color: theme('colors.blue.500'),
+              '&:hover': {
+                color: theme('colors.blue.700'),
+              },
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: theme('colors.gray.300'),
+            a: {
+              color: theme('colors.blue.400'),
+              '&:hover': {
+                color: theme('colors.blue.300'),
+              },
+            },
+            h1: {
+              color: theme('colors.gray.100'),
+            },
+            h2: {
+              color: theme('colors.gray.100'),
+            },
+            h3: {
+              color: theme('colors.gray.100'),
+            },
+            h4: {
+              color: theme('colors.gray.100'),
+            },
+            strong: {
+              color: theme('colors.gray.100'),
+            },
+            code: {
+              color: theme('colors.gray.200'),
+            },
+            blockquote: {
+              color: theme('colors.gray.200'),
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [

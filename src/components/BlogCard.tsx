@@ -17,16 +17,18 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
       <div className="p-6">
-        <div className="flex flex-wrap gap-2 mb-3">
-          {post.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-2 py-1 text-xs rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        {post.tags && post.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-3">
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-1 text-xs rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
         <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
           {post.title}
         </h3>

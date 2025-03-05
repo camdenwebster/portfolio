@@ -17,12 +17,16 @@ export interface BlogPost {
 
 const BLOG_POSTS = [
   {
-    slug: 'building-modern-portfolio',
-    path: '/content/blog/building-modern-portfolio.md'
+    "slug": "Building a Better Home Inventory App",
+    "path": "/content/blog/Building a Better Home Inventory App.md"
   },
   {
-    slug: 'server-side-rendering',
-    path: '/content/blog/server-side-rendering.md'
+    "slug": "building-modern-portfolio",
+    "path": "/content/blog/building-modern-portfolio.md"
+  },
+  {
+    "slug": "coming-soon",
+    "path": "/content/blog/coming-soon.md"
   }
 ];
 
@@ -48,13 +52,14 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     const { data, content } = matter(markdown);
     console.log('Parsed frontmatter:', data);
     
+    // Ensure all required fields are present with default values if missing
     return {
-      title: data.title,
-      date: data.date,
-      tags: data.tags,
-      excerpt: data.excerpt,
+      title: data.title || 'Untitled Post',
+      date: data.date || new Date().toLocaleDateString(),
+      tags: Array.isArray(data.tags) ? data.tags : [],
+      excerpt: data.excerpt || 'No excerpt available',
       slug,
-      content
+      content: content || ''
     };
   } catch (error) {
     console.error('Error in getPostBySlug:', error);

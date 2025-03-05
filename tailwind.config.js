@@ -23,8 +23,12 @@ export default {
           card: '#1e1e1e',
           border: '#2e2e2e',
         },
+        'dark-bg': '#111827',
+        'dark-border': '#374151',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };

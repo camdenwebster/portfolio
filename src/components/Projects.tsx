@@ -4,10 +4,26 @@ import { ExternalLink, Github, ShoppingCart, Code, TestTube } from 'lucide-react
 const Projects = () => {
   const projects = [
     {
+      title: 'MovingBox',
+      description: 'An AI-powered home inventory app that streamlines the moving process by automating inventory data entry using OpenAI\'s vision capabilities. Take a photo of your items and let AI handle the cataloging for you.',
+      image: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=800',
+      technologies: ['Swift', 'SwiftUI', 'SwiftData', 'CloudKit', 'OpenAI', 'RevenueCat', 'TelemetryDeck', 'Sentry'],
+      githubUrl: 'https://github.com/camdenwebster/MovingBox',
+      websiteUrl: 'https://movingbox.ai',
+      role: 'iOS Developer',
+      features: [
+        'AI-powered image recognition for inventory items',
+        'Cloud sync with SwiftData and CloudKit',
+        'In-app purchases using RevenueCat',
+        'Analytics and error tracking',
+        'Modern SwiftUI interface'
+      ]
+    },
+    {
       title: 'CartCopilot',
       description: 'An iOS application designed to streamline the grocery shopping experience with real-time cost tracking and shopping list management. Features include shopping trip management, barcode scanning, and detailed cost analysis.',
       image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800',
-      technologies: ['Swift', 'SwiftUI', 'SwiftData', 'MVVM', 'XCTest'],
+      technologies: ['Swift', 'SwiftUI', 'SwiftData', 'Swfit Testing'],
       githubUrl: 'https://github.com/camdenwebster/CartCopilot',
       role: 'iOS Developer',
       features: [
@@ -35,7 +51,7 @@ const Projects = () => {
       description: 'Developed and implemented XCUITest suites for the Jamf Connect product line, ensuring comprehensive UI testing coverage and improved product quality.',
       image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800',
       technologies: ['Swift', 'XCUITest', 'CI/CD', 'Test Planning'],
-      role: 'Test Engineer',
+      role: 'Test Automation Engineer',
       features: [
         'UI test automation',
         'Performance testing',
@@ -95,8 +111,20 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {project.githubUrl && (
-                  <div className="mt-6">
+                <div className="mt-6 space-y-3">
+                  {project.websiteUrl && (
+                    <a
+                      href={project.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium"
+                    >
+                      <ExternalLink size={20} />
+                      Visit Website
+                    </a>
+                  )}
+                  
+                  {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
@@ -106,8 +134,8 @@ const Projects = () => {
                       <Github size={20} />
                       View Source Code
                     </a>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
           ))}

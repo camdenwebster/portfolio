@@ -17,16 +17,8 @@ export interface BlogPost {
 
 const BLOG_POSTS = [
   {
-    "slug": "Building a Better Home Inventory App",
-    "path": "/content/blog/Building a Better Home Inventory App.md"
-  },
-  {
-    "slug": "building-modern-portfolio",
-    "path": "/content/blog/building-modern-portfolio.md"
-  },
-  {
-    "slug": "coming-soon",
-    "path": "/content/blog/coming-soon.md"
+    "slug": "3-key-lesson-community-college",
+    "path": "/content/blog/3-key-lesson-community-college.md"
   }
 ];
 

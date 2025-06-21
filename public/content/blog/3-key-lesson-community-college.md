@@ -5,8 +5,6 @@ tags: ["Education", "Swift", "iOS", "Self Improvement"]
 excerpt: "Here's what no one tells you about learning to code on your own: having infinite options is actually a curse. I spent more time choosing which tutorial to follow next than actually writing code, until structure became my secret weapon."
 ---
 
-# 3 Key Lessons from Choosing Community College Over Self-Taught Coding
-
 Here's what no one tells you about learning to code on your own: having infinite options is actually a curse. I spent more time choosing which tutorial to follow next than actually writing code. I started and abandoned more projects than I care to admit. The freedom to learn anything meant I learned nothing deeply, until I did something that felt completely counterintuitive in early 2023: going back to school. 
 
 No, I wasn’t planning to blow $100k on a Master’s in hopes of getting that promotion, or admitting that my Bachelor’s in Music Technology was entirely a waste of time. In spite of the plethora of amazing educational content available online, I decided to go back to school for coding. Specifically, Swift (iOS) software development. If you're wondering why I chose this path when there's so much free content available, here's what I learned about the real problem with self-directed coding education, and how structure became my secret weapon.

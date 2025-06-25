@@ -1,0 +1,148 @@
+{{ define "main" }}
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section bg-gradient-to-b from-blue-50 to-white dark:from-blue-950 dark:to-gray-900 pt-32 pb-20">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12 mb-12">
+          <div class="md:w-1/3 flex justify-center">
+            <div class="w-48 h-48 md:w-64 md:h-64 rounded-full relative">
+              <img
+                src="/headshot.png"
+                alt="Camden Webster"
+                class="w-full h-full object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-xl"
+              />
+              <div class="absolute inset-0 rounded-full ring-2 ring-blue-500 dark:ring-blue-400 ring-offset-4 ring-offset-white dark:ring-offset-gray-900 pointer-events-none"></div>
+            </div>
+          </div>
+          <div class="md:w-2/3 text-center md:text-left">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+              Camden Webster
+            </h1>
+            <h2 class="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-8">
+              Senior Test Engineer
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
+              Dedicated to crafting robust test automation solutions and ensuring software quality.
+              Specialized in iOS testing, end-to-end automation frameworks, and comprehensive QA strategies.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-4">
+              <a
+                href="#projects"
+                class="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+              >
+                View My Work
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+              <a
+                href="#contact"
+                class="px-8 py-3 border-2 border-gray-800 dark:border-gray-200 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-700 hover:text-white transition-colors"
+              >
+                Get in Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Sections -->
+  <div class="content-sections">
+    {{ .Content }}
+  </div>
+</div>
+
+<style>
+/* Custom styling for portfolio sections */
+.home-container section {
+  scroll-margin-top: 100px;
+}
+
+.home-container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+.dark .home-container h2 {
+  color: #f9fafb;
+}
+
+.home-container h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #374151;
+}
+
+.dark .home-container h3 {
+  color: #e5e7eb;
+}
+
+/* Project cards styling */
+.project-card {
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.dark .project-card {
+  background: #1f2937;
+}
+
+.project-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Button styling */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #374151;
+  color: #374151;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.dark .btn-secondary {
+  border-color: #e5e7eb;
+  color: #e5e7eb;
+}
+
+.btn-secondary:hover {
+  background-color: #374151;
+  color: white;
+}
+
+.dark .btn-secondary:hover {
+  background-color: #4b5563;
+}
+</style>
+{{ end }}

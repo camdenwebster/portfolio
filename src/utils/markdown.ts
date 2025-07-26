@@ -21,10 +21,6 @@ const BLOG_POSTS = [
     "path": "/content/blog/3-key-lesson-community-college.md"
   },
   {
-    "slug": "Building a Better Home Inventory App",
-    "path": "/content/blog/Building a Better Home Inventory App.md"
-  },
-  {
     "slug": "Getting Started",
     "path": "/content/blog/Getting Started.md"
   },

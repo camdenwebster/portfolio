@@ -21,16 +21,12 @@ const BLOG_POSTS = [
     "path": "/content/blog/3-key-lesson-community-college.md"
   },
   {
-    "slug": "Building a Better Home Inventory App",
-    "path": "/content/blog/Building a Better Home Inventory App.md"
+    "slug": "app-store-made-me-better-tester",
+    "path": "/content/blog/app-store-made-me-better-tester.md"
   },
   {
-    "slug": "Getting Started",
-    "path": "/content/blog/Getting Started.md"
-  },
-  {
-    "slug": "The App Store Made Me a Better Tester - Lessons from Shipping My Own iOS App",
-    "path": "/content/blog/The App Store Made Me a Better Tester - Lessons from Shipping My Own iOS App.md"
+    "slug": "getting-started",
+    "path": "/content/blog/getting-started.md"
   }
 ];
 
@@ -74,9 +70,11 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 export async function getAllPosts(): Promise<BlogPost[]> {
   try {
     console.log('Getting all posts...');
+    console.log('BLOG_POSTS array:', BLOG_POSTS);
     
     const posts = await Promise.all(
       BLOG_POSTS.map(async ({ slug }) => {
+        console.log(`Processing slug: ${slug}`);
         const post = await getPostBySlug(slug);
         console.log(`Post result for ${slug}:`, post ? 'found' : 'not found');
         return post;
@@ -91,6 +89,6 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     );
   } catch (error) {
     console.error('Error in getAllPosts:', error);
-    return [];
+    throw error; // Re-throw to see the actual error
   }
 } 

@@ -33,7 +33,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
           {post.title}
         </h3>
         <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-          {post.date}
+          {typeof post.date === 'string' ? post.date : post.date.toLocaleDateString()}
         </p>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           {post.excerpt}

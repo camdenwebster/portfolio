@@ -19,6 +19,14 @@ const BLOG_POSTS = [
   {
     "slug": "3-key-lesson-community-college",
     "path": "/content/blog/3-key-lesson-community-college.md"
+  },
+  {
+    "slug": "Getting Started",
+    "path": "/content/blog/Getting Started.md"
+  },
+  {
+    "slug": "The App Store Made Me a Better Tester - Lessons from Shipping My Own iOS App",
+    "path": "/content/blog/The App Store Made Me a Better Tester - Lessons from Shipping My Own iOS App.md"
   }
 ];
 

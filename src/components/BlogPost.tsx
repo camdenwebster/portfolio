@@ -77,7 +77,7 @@ const BlogPost: React.FC = () => {
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
           {post.title}
         </h1>
-        <p className="text-gray-600 dark:text-gray-400">{post.date}</p>
+        <p className="text-gray-600 dark:text-gray-400">{typeof post.date === 'string' ? post.date : post.date.toLocaleDateString()}</p>
       </header>
 
       <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-strong:text-gray-900 dark:prose-strong:text-white prose-code:text-gray-800 dark:prose-code:text-gray-200 prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800">

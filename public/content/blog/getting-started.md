@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-date: 2025-06-20
+date: June 20th, 2025
 tags: 
 excerpt:
 ---

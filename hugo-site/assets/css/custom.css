@@ -1,0 +1,247 @@
+/* Custom styles for Camden Webster's portfolio */
+
+/* Hero section enhancements */
+.hero-section {
+  background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+}
+
+.dark .hero-section {
+  background: linear-gradient(135deg, #1e3a8a 0%, #111827 100%);
+}
+
+/* Professional headshot styling */
+.profile-image {
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+/* Project cards with enhanced styling */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.dark .project-card {
+  background: #1f2937;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.dark .project-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.project-image {
+  height: 200px;
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.dark .project-title {
+  color: #f9fafb;
+}
+
+.project-description {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.dark .project-description {
+  color: #d1d5db;
+}
+
+/* Technology tags */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tech-tag {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.dark .tech-tag {
+  background: #1e3a8a;
+  color: #93c5fd;
+}
+
+/* Links styling */
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.project-link:hover {
+  color: #4f46e5;
+}
+
+.dark .project-link {
+  color: #a5b4fc;
+}
+
+.dark .project-link:hover {
+  color: #c7d2fe;
+}
+
+/* About section styling */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.about-card {
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.dark .about-card {
+  background: #374151;
+}
+
+.about-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #6366f1;
+  margin: 0 auto 1rem;
+}
+
+.about-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.dark .about-title {
+  color: #f9fafb;
+}
+
+.about-text {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.dark .about-text {
+  color: #d1d5db;
+}
+
+/* Contact section */
+.contact-section {
+  background: #f8fafc;
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.dark .contact-section {
+  background: #0f172a;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus states for accessibility */
+.btn-primary:focus,
+.btn-secondary:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* Animation for section entries */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Print styles */
+@media print {
+  .hero-section,
+  .contact-section {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .project-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #e5e7eb;
+  }
+}

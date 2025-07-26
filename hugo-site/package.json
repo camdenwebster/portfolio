@@ -1,0 +1,23 @@
+{
+  "name": "camden-webster-portfolio-hugo",
+  "version": "1.0.0",
+  "description": "Camden Webster's portfolio site built with Hugo and Hextra theme",
+  "main": "index.js",
+  "scripts": {
+    "dev": "hugo server --buildDrafts --buildFuture",
+    "build": "hugo --gc --minify",
+    "serve": "hugo server",
+    "clean": "rm -rf public resources/_gen"
+  },
+  "keywords": [
+    "hugo",
+    "hextra",
+    "portfolio",
+    "static-site"
+  ],
+  "author": "Camden Webster",
+  "license": "MIT",
+  "devDependencies": {
+    "hugo-extended": "^0.134.3"
+  }
+}

@@ -5,7 +5,7 @@ const Projects = () => {
   const projects = [
     {
       title: 'MovingBox',
-      description: 'An AI-powered home inventory app that streamlines the moving process by automating inventory data entry using OpenAI\'s vision capabilities. Take a photo of your items and let AI handle the cataloging for you.',
+      description: 'An AI-powered home inventory app built with SwiftUI. Take a photo of your items and let AI handle the cataloging for you.',
       image: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=800',
       technologies: ['Swift', 'SwiftUI', 'SwiftData', 'CloudKit', 'OpenAI', 'RevenueCat', 'TelemetryDeck', 'Sentry'],
       githubUrl: 'https://github.com/camdenwebster/MovingBox',
@@ -20,8 +20,23 @@ const Projects = () => {
       ]
     },
     {
+      title: 'TaskBlock',
+      description: 'A task manager and calendar designed to implement Time Blocking techniques. Built as an exercise in learning UIKit while creating a practical productivity application.',
+      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=800',
+      technologies: ['Swift', 'UIKit', 'Core Data', 'MVC Architecture', 'Interface Builder'],
+      githubUrl: 'https://github.com/camdenwebster/TaskBlock',
+      role: 'iOS Developer',
+      features: [
+        'Intelligent auto-scheduling based on task priority and difficulty',
+        'Time blocking methodology with predefined blocks',
+        'Task categorization and flexible properties',
+        'Core Data integration for persistence',
+        'Custom UIKit interface with storyboards'
+      ]
+    },
+    {
       title: 'CartCopilot',
-      description: 'An iOS application designed to streamline the grocery shopping experience with real-time cost tracking and shopping list management. Features include shopping trip management, barcode scanning, and detailed cost analysis.',
+      description: 'An iOS application designed to streamline the grocery shopping experience with real-time cost tracking and shopping list management.',
       image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800',
       technologies: ['Swift', 'SwiftUI', 'SwiftData', 'Swfit Testing'],
       githubUrl: 'https://github.com/camdenwebster/CartCopilot',
@@ -34,21 +49,21 @@ const Projects = () => {
       ]
     },
     {
-      title: 'Jamf Connect Test Framework',
-      description: 'A comprehensive test automation framework for Jamf Connect Login, a macOS login window replacement. Built with Python and Robot Framework to ensure product quality and reliability.',
+      title: 'Jamf Connect Login Test Framework',
+      description: 'A comprehensive test automation framework for Jamf Connect Login, a macOS login window replacement. Built with Python and Robot Framework.',
       image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=800',
       technologies: ['Python', 'Robot Framework', 'Jenkins', 'CI/CD'],
       role: 'Test Automation Engineer',
       features: [
-        'End-to-end test automation',
-        'CI/CD integration',
-        'Custom test reporting',
+        'End-to-end test automation using SSH and VNC',
+        'Jenkins, Anka CI/CD integration',
+        'Reporting via ReportPortal and TestRail',
         'Parallel test execution'
       ]
     },
     {
       title: 'XCUITest Implementation',
-      description: 'Developed and implemented XCUITest suites for the Jamf Connect product line, ensuring comprehensive UI testing coverage and improved product quality.',
+      description: 'Developed and implemented XCUITest suites for the Jamf Connect and Unlock products, ensuring comprehensive UI testing coverage and improved product quality.',
       image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800',
       technologies: ['Swift', 'XCUITest', 'CI/CD', 'Test Planning'],
       role: 'Test Automation Engineer',

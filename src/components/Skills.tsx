@@ -3,37 +3,57 @@ import React from 'react';
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Languages',
+      title: 'iOS Development',
       skills: [
-        { name: 'Swift', level: 75 },
-        { name: 'Python', level: 65 },
+        'Swift',
+        'SwiftUI', 
+        'UIKit',
+        'MVVM',
+        'Protocol-Oriented Programming',
+        'Dependency Injection'
       ],
     },
     {
-      title: 'Testing & Automation',
+      title: 'API Integration',
       skills: [
-        { name: 'XCUITest', level: 90 },
-        { name: 'Robot Framework', level: 90 },
-        { name: 'Test Planning', level: 90 },
-        { name: 'Test Automation', level: 85 },
+        'REST APIs',
+        'JSON parsing',
+        'URLSession',
+        'async/await',
+        'GraphQL (familiar)'
+      ],
+    },
+    {
+      title: 'Mobile Testing',
+      skills: [
+        'XCUITest',
+        'XCTest',
+        'Swift Testing',
+        'Snapshot Testing',
+        'Accessibility Testing',
+        'API Testing'
+      ],
+    },
+    {
+      title: 'CI/CD & DevOps',
+      skills: [
+        'GitHub Actions',
+        'Jenkins',
+        'Fastlane',
+        'Anka Virtualization',
+        'Xcode Cloud'
       ],
     },
     {
       title: 'Tools & Frameworks',
       skills: [
-        { name: 'Xcode', level: 80 },
-        { name: 'Git', level: 85 },
-        { name: 'CI/CD', level: 80 },
-        { name: 'JIRA', level: 90 },
-      ],
-    },
-    {
-      title: 'Soft Skills',
-      skills: [
-        { name: 'Technical Support', level: 90 },
-        { name: 'Documentation', level: 85 },
-        { name: 'Team Leadership', level: 80 },
-        { name: 'Problem Solving', level: 90 },
+        'JIRA',
+        'TestRail',
+        'Charles Proxy',
+        'Sentry',
+        'TelemetryDeck',
+        'Git',
+        'Bash'
       ],
     },
   ];
@@ -43,23 +63,15 @@ const Skills = () => {
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center mb-16 dark:text-white">Skills</h2>
         
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <div key={index}>
-              <h3 className="text-xl font-bold mb-6 dark:text-white">{category.title}</h3>
-              <div className="space-y-6">
+            <div key={index} className="bg-gray-50 dark:bg-dark-card rounded-lg p-6">
+              <h3 className="text-xl font-bold mb-4 text-primary-600 dark:text-primary-400">{category.title}</h3>
+              <div className="space-y-2">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    <div className="flex justify-between mb-2">
-                      <span className="font-medium dark:text-white">{skill.name}</span>
-                      <span className="text-gray-600 dark:text-gray-300">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 dark:bg-dark-border rounded-full h-2.5">
-                      <div
-                        className="bg-primary-600 h-2.5 rounded-full"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+                  <div key={skillIndex} className="flex items-center">
+                    <div className="w-2 h-2 bg-primary-500 rounded-full mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 dark:text-gray-300">{skill}</span>
                   </div>
                 ))}
               </div>

@@ -5,29 +5,42 @@ const Experience = () => {
   const experiences = [
     {
       company: 'Jamf',
-      position: 'Senior Test Engineer',
-      period: '2019 - Present',
-      location: 'Remote (Algonquin, IL)',
-      description: 'Responsible for product quality and test automation efforts for the Jamf Connect product line.',
+      position: 'Senior Software Engineer, Test',
+      period: 'Oct 2019 - Present',
+      location: 'Remote',
+      description: 'Built test automation from scratch for Jamf Connect and Unlock apps, establishing XCUITests and reusable CI/CD pipelines that scaled from MVP to production serving 76k+ organizations managing 33M+ devices.',
       achievements: [
-        'Designed and implemented a custom Python/Robot Framework-based test automation framework to automate the Jamf Connect Login product (a macOS login window replacement)',
-        'Implemented XCUITest suite for remaining apps in product line',
-        'Implemented CI/CD pipelines for automated testing (Jenkins and Anka)'
+        'Built test automation from scratch for Jamf Connect and Unlock apps, establishing XCUITests and reusable CI/CD pipelines that scaled from MVP to production serving 76k+ organizations managing 33M+ devices',
+        'Pioneered comprehensive testing strategy as primary QA engineer for new product line, including test planning, risk assessment, exploratory testing, and go/no-go release criteria reducing incidents by 40%',
+        'Mentored team members on iOS testing best practices, Swift development patterns, and CI/CD strategies',
+        'Collaborated closely with product managers, designers, and backend engineers on mobile feature requirements and technical implementation planning',
+        'Designed and implemented Python-based automation framework for authentication and access control systems, saving $80k/year in licensing costs while reducing manual testing time by 90%',
+        'Built AI-driven test generation tool using Claude and MCP to automate end-to-end test creation, pioneering innovative approaches to scale testing coverage'
       ],
-      technologies: ['Python', 'Robot Framework', 'XCUITest', 'Jenkins', 'Anka']
+      technologies: ['Swift', 'XCUITest', 'XCTest', 'Python', 'Robot Framework', 'Jenkins', 'GitHub Actions', 'Fastlane', 'Anka Virtualization']
     },
     {
       company: 'Jamf',
       position: 'Senior Technical Support Engineer',
-      period: '2015 - 2019',
+      period: 'Jul 2017 - Oct 2019',
       location: 'Eau Claire, WI',
-      description: 'Provided advanced technical support and solutions for enterprise customers as a final escalation point.',
+      description: 'Solved complex mobile device management issues, developed deep understanding of customer experiences. Served as final escalation point for technical support before engineering engagement.',
       achievements: [
-        'Served as final escalation point on a specialized team handling worldwide technical support issues before engineering engagement',
-        'Led internal training initiatives as subject matter expert for Jamf Connect and NoMAD tools during acquisition',
-        'Conducted comprehensive training sessions for technical support department on new Jamf Pro features as part of the release training team'
+        'Solved complex mobile device management issues, developed deep understanding of customer experiences',
+        'Served as final escalation point for technical support before engineering engagement'
       ],
-      technologies: ['Technical Support', 'Product Training', 'Problem Solving', 'Jamf Pro', 'Salesforce', 'Jamf Connect', 'NoMAD']
+      technologies: ['Technical Support', 'Problem Solving', 'Jamf Pro', 'macOS', 'iOS', 'Mobile Device Management']
+    },
+    {
+      company: 'Jamf',
+      position: 'Technical Account Manager',
+      period: 'Sep 2015 - Jul 2017',
+      location: 'Eau Claire, WI',
+      description: 'Managed relationships and provided dedicated technical support for 120 enterprise customer accounts.',
+      achievements: [
+        'Managed relationships and provided dedicated technical support for 120 enterprise customer accounts'
+      ],
+      technologies: ['Account Management', 'Technical Support', 'Customer Relations', 'Jamf Pro']
     }
   ];
 
@@ -64,9 +77,12 @@ const Experience = () => {
               <p className="text-gray-600 dark:text-gray-300 mb-4">{exp.description}</p>
 
               <h4 className="font-semibold mb-2 dark:text-white">Key Achievements:</h4>
-              <ul className="list-disc list-inside mb-4 text-gray-600 dark:text-gray-300">
+              <ul className="mb-4 text-gray-600 dark:text-gray-300 space-y-2">
                 {exp.achievements.map((achievement, i) => (
-                  <li key={i} className="mb-1">{achievement}</li>
+                  <li key={i} className="flex items-start">
+                    <span className="text-primary-500 mr-2 mt-0.5 flex-shrink-0 leading-relaxed">•</span>
+                    <span className="flex-1 leading-relaxed">{achievement}</span>
+                  </li>
                 ))}
               </ul>
 

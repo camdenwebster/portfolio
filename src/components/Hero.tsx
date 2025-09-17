@@ -33,10 +33,12 @@ const Hero = () => {
                 <ArrowRight size={20} />
               </a>
               <a
-                href="#contact"
+                href="/Resume-CamdenWebster-iOS.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-3 border-2 border-gray-800 dark:border-gray-200 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-700 hover:text-white transition-colors flex items-center justify-center min-w-[160px]"
               >
-                Get in Touch
+                View Resumé (PDF)
               </a>
             </div>
           </div>

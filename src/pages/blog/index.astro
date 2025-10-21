@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeaderAstro from '../../components/HeaderAstro';
-import BlogCard from '../../components/BlogCard';
+import BlogCard from '../../components/BlogCard.astro';
 
 const posts = await getCollection('blog');
 const sortedPosts = posts.sort((a, b) =>
@@ -18,7 +18,6 @@ const sortedPosts = posts.sort((a, b) =>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sortedPosts.map((post) => (
           <BlogCard
-            client:load
             title={post.data.title}
             date={post.data.date}
             excerpt={post.data.excerpt}

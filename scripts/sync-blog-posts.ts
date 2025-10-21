@@ -2,7 +2,10 @@ import fs from 'fs';
 import path from 'path';
 
 const BLOG_SOURCE_DIR = process.env.BLOG_SOURCE_DIR || '';
-const BLOG_DEST_DIR = path.join(process.cwd(), 'public', 'content', 'blog');
+// Updated to use Astro Content Collections
+const BLOG_DEST_DIR = path.join(process.cwd(), 'src', 'content', 'blog');
+// Legacy location for backwards compatibility
+const BLOG_DEST_DIR_LEGACY = path.join(process.cwd(), 'public', 'content', 'blog');
 const MARKDOWN_TS_PATH = path.join(process.cwd(), 'src', 'utils', 'markdown.ts');
 
 // Ensure source directory is provided
@@ -11,9 +14,12 @@ if (!BLOG_SOURCE_DIR) {
   process.exit(1);
 }
 
-// Create destination directory if it doesn't exist
+// Create destination directories if they don't exist
 if (!fs.existsSync(BLOG_DEST_DIR)) {
   fs.mkdirSync(BLOG_DEST_DIR, { recursive: true });
+}
+if (!fs.existsSync(BLOG_DEST_DIR_LEGACY)) {
+  fs.mkdirSync(BLOG_DEST_DIR_LEGACY, { recursive: true });
 }
 
 // Copy blog posts from source to destination
@@ -23,34 +29,42 @@ const sourceFiles = fs.readdirSync(BLOG_SOURCE_DIR)
 
 sourceFiles.forEach(file => {
   const sourcePath = path.join(BLOG_SOURCE_DIR, file);
+  // Copy to Astro Content Collections location
   const destPath = path.join(BLOG_DEST_DIR, file);
   fs.copyFileSync(sourcePath, destPath);
-  console.log(`Copied ${file}`);
+  console.log(`Copied ${file} to Astro content collection`);
+
+  // Also copy to legacy location for backwards compatibility
+  const destPathLegacy = path.join(BLOG_DEST_DIR_LEGACY, file);
+  fs.copyFileSync(sourcePath, destPathLegacy);
 });
 
-// Update BLOG_POSTS array in markdown.ts
-console.log('\nUpdating BLOG_POSTS array...');
+// Update BLOG_POSTS array in markdown.ts (for legacy React app)
+if (fs.existsSync(MARKDOWN_TS_PATH)) {
+  console.log('\nUpdating BLOG_POSTS array for legacy React app...');
 
-// Read all markdown files in the destination directory
-const blogPosts = fs.readdirSync(BLOG_DEST_DIR)
-  .filter(file => file.endsWith('.md'))
-  .map(file => ({
-    slug: path.basename(file, '.md'),
-    path: `/content/blog/${file}`
-  }));
+  // Read all markdown files in the legacy destination directory
+  const blogPosts = fs.readdirSync(BLOG_DEST_DIR_LEGACY)
+    .filter(file => file.endsWith('.md'))
+    .map(file => ({
+      slug: path.basename(file, '.md'),
+      path: `/content/blog/${file}`
+    }));
 
-// Read the current markdown.ts file
-let markdownTs = fs.readFileSync(MARKDOWN_TS_PATH, 'utf-8');
+  // Read the current markdown.ts file
+  let markdownTs = fs.readFileSync(MARKDOWN_TS_PATH, 'utf-8');
 
-// Find the BLOG_POSTS array in the file
-const blogPostsRegex = /const BLOG_POSTS = \[([\s\S]*?)\];/;
-const newBlogPostsArray = `const BLOG_POSTS = ${JSON.stringify(blogPosts, null, 2)};`;
+  // Find the BLOG_POSTS array in the file
+  const blogPostsRegex = /const BLOG_POSTS = \[([\s\S]*?)\];/;
+  const newBlogPostsArray = `const BLOG_POSTS = ${JSON.stringify(blogPosts, null, 2)};`;
 
-// Replace the existing array with the new one
-markdownTs = markdownTs.replace(blogPostsRegex, newBlogPostsArray);
+  // Replace the existing array with the new one
+  markdownTs = markdownTs.replace(blogPostsRegex, newBlogPostsArray);
 
-// Write the updated content back to markdown.ts
-fs.writeFileSync(MARKDOWN_TS_PATH, markdownTs);
+  // Write the updated content back to markdown.ts
+  fs.writeFileSync(MARKDOWN_TS_PATH, markdownTs);
 
-console.log('Successfully updated BLOG_POSTS array');
-console.log(`\nSynced ${sourceFiles.length} blog posts`); 
+  console.log('Successfully updated BLOG_POSTS array');
+}
+
+console.log(`\nSynced ${sourceFiles.length} blog posts to both Astro and legacy locations`); 

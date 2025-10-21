@@ -1,0 +1,55 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderAstro from '../../components/HeaderAstro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const post = await getEntry('blog', slug);
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await post.render();
+---
+
+<BaseLayout title={`${post.data.title} - Camden Webster`} description={post.data.excerpt}>
+  <HeaderAstro client:load />
+  <main class="pt-24">
+    <article class="container mx-auto px-6 py-12 max-w-4xl">
+      <header class="mb-8">
+        <h1 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+          {post.data.title}
+        </h1>
+        <div class="flex items-center gap-4 text-gray-600 dark:text-gray-400">
+          <time datetime={post.data.date}>{post.data.date}</time>
+          <div class="flex gap-2">
+            {post.data.tags.map((tag) => (
+              <span class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-sm">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </header>
+      <div class="prose dark:prose-dark max-w-none">
+        <Content />
+      </div>
+      <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+        <a
+          href="/blog"
+          class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+        >
+          ← Back to Blog
+        </a>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

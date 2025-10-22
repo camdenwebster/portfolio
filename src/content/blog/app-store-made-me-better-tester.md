@@ -1,12 +1,8 @@
 ---
 title: "The App Store Made Me a Better Tester: Lessons from Shipping My Own iOS App"
-date: July 25th, 2025
-tags:
-  - IndieDev
-  - QA
-  - iOS
-  - Swift
-excerpt: I have a confession to make. I'm not really a developer.
+date: "July 25th, 2025"
+tags: ["IndieDev", "QA", "iOS", "Swift"]
+excerpt: "I have a confession to make. I'm not really a developer."
 ---
 I have a confession to make. I'm not really a developer. Or at least that's what my imposter syndrome tells me. Serving primarily in a QA/test automation role for the last five years on a team that ships enterprise macOS apps at Jamf, I've always looked up to the brilliant devs on my team and wanted to be able to speak their language. I wanted to turn my app ideas into reality. I wanted more headroom to increase my salary over time and accelerate my journey to financial independence. This is originally why I decided to start learning Swift "for real" in late 2022, which ironically coincided with the introduction of ChatGPT and potentially the beginning of the end for junior developer jobs.
 

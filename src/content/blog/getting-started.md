@@ -1,8 +1,8 @@
 ---
 title: Getting Started
 date: June 20th, 2025
-tags: 
-excerpt:
+tags: ["Personal"]
+excerpt: "I decided to start this blog for a few different reasons: Build my written communication skills, build in public, and make sense of life."
 ---
 I decided to start this blog for a few different reasons:
 

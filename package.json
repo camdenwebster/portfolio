@@ -1,18 +1,26 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "camden-webster-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:astro": "astro dev",
     "build": "vite build",
+    "build:astro": "astro build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "preview:astro": "astro preview",
     "sync-blog": "tsx scripts/sync-blog-posts.ts",
     "prepare": "husky install"
   },
   "dependencies": {
+    "@astrojs/react": "^4.4.0",
+    "@astrojs/rss": "^4.0.13",
+    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/tailwind": "^6.0.2",
     "@tailwindcss/typography": "^0.5.16",
+    "astro": "^5.14.8",
     "buffer": "^6.0.3",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.344.0",

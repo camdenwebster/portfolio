@@ -1,0 +1,62 @@
+---
+import { ArrowRight } from 'lucide-react';
+import { Image } from 'astro:assets';
+import headshotImage from '../../public/headshot-2025.webp';
+---
+
+<section class="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-primary-950 dark:to-dark-bg relative overflow-hidden">
+  <div class="container mx-auto px-6 h-full">
+    <div class="flex flex-col lg:flex-row items-center justify-between h-full min-h-screen">
+      <!-- Left content -->
+      <div class="lg:w-1/2 text-center lg:text-left pt-32 lg:pt-0">
+        <div class="mb-8">
+          <h1 class="text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4">
+            Hello! 👋
+          </h1>
+          <div class="w-24 h-1 bg-primary-500 mx-auto lg:mx-0 mb-8"></div>
+        </div>
+
+        <div class="space-y-6 text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
+          <p>
+            My name's Camden. I'm a Software Engineer specializing in Apple platforms, dedicated to delivering quality mobile experiences.
+          </p>
+          <p>
+            My background in software quality and customer experience gives me a unique perspective on building robust, scalable mobile applications.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mt-12">
+          <a
+            href="#projects"
+            class="px-8 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors flex items-center gap-2 min-w-[160px] justify-center"
+          >
+            View My Work
+            <ArrowRight size={20} />
+          </a>
+          <a
+            href="/Resume-CamdenWebster-iOS.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-8 py-3 border-2 border-gray-800 dark:border-gray-200 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-700 hover:text-white transition-colors flex items-center justify-center min-w-[160px]"
+          >
+            View Resumé (PDF)
+          </a>
+        </div>
+      </div>
+
+      <!-- Right image -->
+      <div class="lg:w-1/2 flex justify-center lg:justify-end items-end h-full">
+        <div class="relative flex items-end justify-center lg:justify-end w-full h-full">
+          <Image
+            src={headshotImage}
+            alt="Camden Webster"
+            class="max-h-full w-auto object-contain object-bottom"
+            style="max-height: calc(100vh - 2rem)"
+            loading="eager"
+            quality={90}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

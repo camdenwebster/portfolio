@@ -1,0 +1,62 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Camden Webster - Portfolio",
+  description = "Portfolio and blog of Camden Webster"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="Camden Webster Blog" href="/rss.xml" />
+
+    <!-- Umami Analytics - Privacy-friendly, GDPR compliant -->
+    <!-- Sign up at https://umami.is to get your website ID -->
+    <!-- Uncomment and add your website-id when ready:
+    <script async defer
+      data-website-id="YOUR-WEBSITE-ID-HERE"
+      src="https://analytics.umami.is/script.js">
+    </script>
+    -->
+
+    <script is:inline>
+      // Initialize theme before page loads to prevent flash
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+  <body class="min-h-screen bg-white dark:bg-dark-bg text-gray-900 dark:text-gray-100 transition-colors duration-200">
+    <slot />
+    <footer class="bg-gray-900 dark:bg-black text-white py-8">
+      <div class="container mx-auto px-6 text-center">
+        <p>&copy; {new Date().getFullYear()} Camden Webster. All rights reserved.</p>
+        <div class="mt-4">
+          <a href="/rss.xml" class="text-gray-400 hover:text-white transition-colors text-sm">
+            RSS Feed
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import '../index.css';
+</style>

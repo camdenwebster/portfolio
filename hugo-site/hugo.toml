@@ -1,0 +1,108 @@
+baseURL = 'https://camdenwebster.com'
+languageCode = 'en-us'
+title = 'Camden Webster - Senior Test Engineer'
+theme = 'hextra'
+
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = true
+hasCJKLanguage = false
+
+[build]
+  writeStats = true
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+  page = ['HTML']
+  section = ['HTML', 'RSS']
+
+[params]
+  # Theme settings
+  displayMode = 'auto' # auto, light, dark
+  
+  # Site settings
+  author = 'Camden Webster'
+  description = 'Senior Test Engineer specializing in test automation, iOS testing, and comprehensive QA strategies.'
+  keywords = ['QA', 'Test Automation', 'iOS Testing', 'Software Quality', 'XCUITest', 'Portfolio']
+  
+  # Navigation
+  [params.navbar]
+    displayTitle = true
+    displayLogo = true
+    
+  # Footer
+  [params.footer]
+    displayCopyright = true
+    displayPoweredBy = false
+    
+  # Edit page
+  [params.editPage]
+    enable = false
+    
+  # Search
+  [params.search]
+    enable = true
+    type = 'flexsearch'
+    
+  # Comments (if needed)
+  [params.comments]
+    enable = false
+
+[menu]
+  [[menu.main]]
+    identifier = 'home'
+    name = 'Home'
+    url = '/'
+    weight = 1
+    
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/#about'
+    weight = 2
+    
+  [[menu.main]]
+    identifier = 'projects'
+    name = 'Projects'
+    url = '/#projects'
+    weight = 3
+    
+  [[menu.main]]
+    identifier = 'blog'
+    name = 'Blog'
+    url = '/blog/'
+    weight = 4
+    
+  [[menu.main]]
+    identifier = 'contact'
+    name = 'Contact'
+    url = '/#contact'
+    weight = 5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = 'github'
+    lineNos = true
+    lineNumbersInTable = true
+    tabWidth = 2
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[related]
+  includeNewer = true
+  threshold = 60
+  toLower = false
+  [[related.indices]]
+    name = 'keywords'
+    weight = 100
+  [[related.indices]]
+    name = 'tags'
+    weight = 80
+  [[related.indices]]
+    name = 'date'
+    weight = 10

@@ -1,0 +1,36 @@
+---
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Camden Webster - iOS Software Engineer specializing in Apple platforms' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="min-h-screen bg-white text-gray-900">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+          <p>&copy; {new Date().getFullYear()} Camden Webster. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
